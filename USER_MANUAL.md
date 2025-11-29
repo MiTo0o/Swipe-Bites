@@ -3,7 +3,7 @@
 ## Getting Started
 
 ### Creating an Account
-1. Open the SwipeBites app at http://localhost:3000
+1. Open the SwipeBites app at http://localhost:3000 (or whereever you've deployed it)
 2. Click "Sign Up" on the welcome screen
 3. Enter your email address and create a password (minimum 6 characters)
 4. Confirm your password
