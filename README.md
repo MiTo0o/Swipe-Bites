@@ -55,7 +55,7 @@ npm run seed
 npm run dev
 ```
 
-**That's it!** Open http://localhost:3000 and start swiping.
+**That's it!** Open http://localhost:3000 (or wherever you want to deploy it locally) and start swiping. 
 
 ## Features
 
