@@ -1,0 +1,32 @@
+{
+  "name": "swipebites",
+  "version": "1.0.0",
+  "description": "A swipe-based restaurant recommendation app for Cleveland State University students",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "test": "concurrently \"npm run test:backend\" \"npm run test:frontend\"",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm run test:coverage",
+    "seed": "cd backend && npm run seed",
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start"
+  },
+  "keywords": [
+    "restaurant",
+    "swipe",
+    "csu",
+    "cleveland",
+    "food",
+    "recommendation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+.liked-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(43, 43, 43, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.liked-panel {
+  background: #F9F5F2;
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow:
+    0 25px 50px rgba(43, 43, 43, 0.2),
+    0 10px 20px rgba(43, 43, 43, 0.1);
+  border: 1px solid #D5CEC8;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.liked-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid #D5CEC8;
+  background: rgba(213, 206, 200, 0.2);
+}
+
+.liked-header h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #3C2F2E;
+  letter-spacing: -0.025em;
+}
+
+.close-button {
+  background: rgba(213, 206, 200, 0.3);
+  border: 1px solid #D5CEC8;
+  color: #3C2F2E;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-button:hover {
+  background: rgba(213, 206, 200, 0.5);
+  border-color: #D5CEC8;
+  transform: scale(1.05);
+}
+
+.liked-content {
+  padding: 32px;
+  overflow-y: auto;
+  max-height: calc(90vh - 100px);
+}
+
+.loading-container, .error-container, .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(226, 232, 240, 0.2);
+  border-radius: 50%;
+  border-top-color: #3b82f6;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container p, .error-container p {
+  color: #3C2F2E;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.retry-button {
+  background: linear-gradient(135deg, #B7D77D 0%, #9CC755 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(183, 215, 125, 0.3);
+  font-family: 'Poppins', sans-serif;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(183, 215, 125, 0.4);
+  background: linear-gradient(135deg, #9CC755 0%, #8AB73D 100%);
+}
+
+.empty-state {
+  padding: 64px 24px;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.empty-state h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3C2F2E;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.025em;
+}
+
+.empty-state p {
+  color: #3C2F2E;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.restaurants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.restaurant-item {
+  background: rgba(213, 206, 200, 0.3);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #D5CEC8;
+}
+
+.restaurant-item:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-color: rgba(51, 65, 85, 0.5);
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+}
+
+.restaurant-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-item:hover .restaurant-image img {
+  transform: scale(1.05);
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: white;
+}
+
+.restaurant-info {
+  padding: 20px;
+}
+
+.restaurant-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3C2F2E;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.restaurant-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.price {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.restaurant-description {
+  color: #6B5B50;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+  font-weight: 400;
+}
+
+.restaurant-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.distance, .cuisine {
+  font-size: 12px;
+  color: #3C2F2E;
+  background: rgba(213, 206, 200, 0.6);
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: 500;
+  border: 1px solid rgba(213, 206, 200, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.restaurant-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-button {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.call-button {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.call-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.website-button {
+  background: rgba(213, 206, 200, 0.5);
+  color: #3C2F2E;
+  border: 1px solid rgba(213, 206, 200, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.website-button:hover {
+  background: rgba(213, 206, 200, 0.7);
+  border-color: rgba(213, 206, 200, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom scrollbar */
+.liked-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.liked-content::-webkit-scrollbar-track {
+  background: rgba(213, 206, 200, 0.2);
+  border-radius: 4px;
+}
+
+.liked-content::-webkit-scrollbar-thumb {
+  background: rgba(213, 206, 200, 0.5);
+  border-radius: 4px;
+}
+
+.liked-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(213, 206, 200, 0.7);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .liked-overlay {
+    padding: 10px;
+  }
+
+  .liked-panel {
+    max-height: 95vh;
+  }
+
+  .liked-header {
+    padding: 20px 24px;
+  }
+
+  .liked-header h3 {
+    font-size: 20px;
+  }
+
+  .liked-content {
+    padding: 24px;
+  }
+
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .empty-state {
+    padding: 48px 16px;
+  }
+
+  .empty-icon {
+    font-size: 48px;
+  }
+
+  .empty-state h4 {
+    font-size: 20px;
+  }
+
+  .restaurant-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .restaurant-item,
+  .restaurant-image img,
+  .action-button,
+  .close-button {
+    transition: none;
+  }
+
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* Tab styles */
+.tabs-container {
+  display: flex;
+  border-bottom: 2px solid rgba(213, 206, 200, 0.5);
+  margin: 0 -24px 20px -24px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  color: #6B5B50;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-button:hover {
+  color: #3C2F2E;
+  background: rgba(213, 206, 200, 0.2);
+}
+
+.tab-button.active {
+  color: #3b82f6;
+  border-bottom-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.tab-actions {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 24px 0;
+  margin: 0 0 16px 0;
+}
+
+.clear-history-button {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-history-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Focus styles */
+.close-button:focus,
+.retry-button:focus,
+.action-button:focus,
+.tab-button:focus,
+.clear-history-button:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
