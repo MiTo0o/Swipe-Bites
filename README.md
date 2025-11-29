@@ -13,11 +13,7 @@ npm run install-all
 
 ### 2. Environment Setup
 
-Copy the example environment files:
-```bash
-cp .env.example .env
-cp frontend/.env.example frontend/.env
-```
+Create .env file
 
 Configure your environment variables in `.env`:
 
@@ -32,6 +28,8 @@ NODE_ENV=development
 # Security (generate a strong random string)
 SESSION_SECRET=your_secure_random_session_secret_here
 ```
+
+Create frontend .env file
 
 Configure your frontend environment variables in `frontend/.env`:
 
