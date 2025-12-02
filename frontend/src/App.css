@@ -37,6 +37,17 @@ body {
   box-shadow: 0 4px 20px rgba(43, 43, 43, 0.1);
 }
 
+.app-header::before {
+  content: '';
+  position: absolute;
+  top: -100vh;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: #F9F5F2;
+  z-index: -1;
+}
+
 .header-content {
   text-align: center;
   grid-column: 2;

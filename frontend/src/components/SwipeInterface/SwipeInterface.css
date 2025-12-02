@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 .swipe-interface {
@@ -110,30 +111,37 @@
 
 .no-more-cards {
   text-align: center;
-  color: #E1EDC1;
-  background: rgba(50, 100, 20, 0.8);
+  background: white;
   backdrop-filter: blur(20px);
   border-radius: 24px;
   padding: 48px 32px;
   max-width: 400px;
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(84, 172, 90, 0.1);
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.no-more-cards-icon {
+  font-size: 48px;
+  color: #2B2B2B;
+  margin-bottom: 16px;
+  display: block;
 }
 
 .no-more-cards h3 {
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
   font-size: 28px;
-  font-weight: 700;
-  color: #f1f5f9;
+  font-weight: 600;
+  color: #2B2B2B;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
 .no-more-cards p {
   margin: 0 0 32px 0;
-  opacity: 0.8;
   line-height: 1.6;
   font-size: 16px;
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .reload-button {
@@ -148,6 +156,9 @@
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(183, 215, 125, 0.3);
   font-family: 'Poppins', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .reload-button:hover {
