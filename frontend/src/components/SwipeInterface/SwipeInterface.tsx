@@ -175,11 +175,84 @@ const SwipeInterface: React.FC<SwipeInterfaceProps> = ({
   if ((!currentRestaurant || currentIndex >= restaurants.length) && !loading) {
     return (
       <div className="swipe-interface">
+        {/* Food Icons Grid - Same as main view */}
+        <div className="food-icons-grid">
+          <i className="fas fa-pizza-slice food-icon"></i>
+          <i className="fas fa-hamburger food-icon"></i>
+          <i className="fas fa-coffee food-icon"></i>
+          <i className="fas fa-utensils food-icon"></i>
+          <i className="fas fa-wine-glass food-icon"></i>
+          <i className="fas fa-ice-cream food-icon"></i>
+          <i className="fas fa-bread-slice food-icon"></i>
+          <i className="fas fa-fish food-icon"></i>
+          <i className="fas fa-cheese food-icon"></i>
+          <i className="fas fa-apple-alt food-icon"></i>
+          <i className="fas fa-carrot food-icon"></i>
+          <i className="fas fa-lemon food-icon"></i>
+          <i className="fas fa-pepper-hot food-icon"></i>
+          <i className="fas fa-drumstick-bite food-icon"></i>
+          <i className="fas fa-birthday-cake food-icon"></i>
+          <i className="fas fa-hotdog food-icon"></i>
+          <i className="fas fa-mug-hot food-icon"></i>
+          <i className="fas fa-cocktail food-icon"></i>
+          <i className="fas fa-cookie-bite food-icon"></i>
+          <i className="fas fa-pizza-slice food-icon"></i>
+          <i className="fas fa-pizza-slice food-icon"></i>
+          <i className="fas fa-coffee food-icon"></i>
+          <i className="fas fa-hamburger food-icon"></i>
+          <i className="fas fa-ice-cream food-icon"></i>
+          <i className="fas fa-fish food-icon"></i>
+          <i className="fas fa-bread-slice food-icon"></i>
+          <i className="fas fa-wine-glass food-icon"></i>
+          <i className="fas fa-cheese food-icon"></i>
+          <i className="fas fa-utensils food-icon"></i>
+          <i className="fas fa-apple-alt food-icon"></i>
+          <i className="fas fa-drumstick-bite food-icon"></i>
+          <i className="fas fa-mug-hot food-icon"></i>
+          <i className="fas fa-lemon food-icon"></i>
+          <i className="fas fa-carrot food-icon"></i>
+          <i className="fas fa-hotdog food-icon"></i>
+          <i className="fas fa-pepper-hot food-icon"></i>
+          <i className="fas fa-cocktail food-icon"></i>
+          <i className="fas fa-cookie-bite food-icon"></i>
+          <i className="fas fa-fish food-icon"></i>
+          <i className="fas fa-pizza-slice food-icon"></i>
+          <i className="fas fa-coffee food-icon"></i>
+          <i className="fas fa-hamburger food-icon"></i>
+          <i className="fas fa-utensils food-icon"></i>
+          <i className="fas fa-wine-glass food-icon"></i>
+          <i className="fas fa-ice-cream food-icon"></i>
+          <i className="fas fa-bread-slice food-icon"></i>
+          <i className="fas fa-fish food-icon"></i>
+          <i className="fas fa-cheese food-icon"></i>
+          <i className="fas fa-apple-alt food-icon"></i>
+          <i className="fas fa-carrot food-icon"></i>
+          <i className="fas fa-lemon food-icon"></i>
+          <i className="fas fa-pepper-hot food-icon"></i>
+          <i className="fas fa-drumstick-bite food-icon"></i>
+          <i className="fas fa-lemon food-icon"></i>
+          <i className="fas fa-hotdog food-icon"></i>
+          <i className="fas fa-mug-hot food-icon"></i>
+          <i className="fas fa-cocktail food-icon"></i>
+          <i className="fas fa-cookie-bite food-icon"></i>
+          <i className="fas fa-cheese food-icon"></i>
+          <i className="fas fa-pizza-slice food-icon"></i>
+          <i className="fas fa-coffee food-icon"></i>
+          <i className="fas fa-hamburger food-icon"></i>
+          <i className="fas fa-utensils food-icon"></i>
+          <i className="fas fa-wine-glass food-icon"></i>
+          <i className="fas fa-bread-slice food-icon"></i>
+          <i className="fas fa-fish food-icon"></i>
+          <i className="fas fa-apple-alt food-icon"></i>
+          <i className="fas fa-ice-cream food-icon"></i>
+        </div>
         <div className="no-more-cards">
-          <h3>No more restaurants!</h3>
-          <p>Try adjusting your filters or check back later for more options.</p>
+          <i className="fas fa-utensils no-more-cards-icon"></i>
+          <h3>You've seen them all!</h3>
+          <p>Adjust your filters to discover more places, or start fresh with a new shuffle.</p>
           <button onClick={loadRestaurants} className="reload-button">
-            🔄 Reload
+            <i className="fas fa-redo"></i>
+            Start Over
           </button>
         </div>
       </div>

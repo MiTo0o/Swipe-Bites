@@ -48,7 +48,10 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
 
       <div className="card-content">
         <div className="card-header">
-          <h2 className="restaurant-name">{restaurant.name}</h2>
+          <div className="card-header-left">
+            <h2 className="restaurant-name">{restaurant.name}</h2>
+            <p className="restaurant-description">{restaurant.description}</p>
+          </div>
           <div className="restaurant-meta">
             <span className="rating">
               {getRatingStars(restaurant.rating)}
@@ -57,8 +60,6 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
             <span className="price">{getPriceDisplay(restaurant.priceRange)}</span>
           </div>
         </div>
-
-        <p className="restaurant-description">{restaurant.description}</p>
 
         <div className="restaurant-details">
           <div className="detail-item">
