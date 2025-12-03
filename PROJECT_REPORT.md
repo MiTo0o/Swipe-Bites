@@ -156,7 +156,7 @@ This document follows a standard software project report structure:
 
 | Role | Responsibilities | Team Member |
 |------|------------------|-------------|
-| Full-Stack Developer | Frontend/Backend development, Testing | Zaid |
+| Full-Stack Developer | Frontend/Backend development, UI/UX | Zaid |
 | Full-Stack Developer | Frontend/Backend development, Database | Derzan |
 
 **Communication:**
@@ -279,44 +279,44 @@ The project followed an **Agile/Iterative** development model with the following
 
 ```
                                     ┌─────────────────────────────────────┐
-                                    │           SwipeBites System          │
-                                    │                                      │
+                                    │           SwipeBites System         |
+                                    │                                     │
     ┌──────────┐                    │  ┌─────────────────────────────┐    │
     │          │                    │  │                             │    │
     │   User   │────────────────────┼──│  UC1: Register Account      │    │
     │          │                    │  │                             │    │
     └──────────┘                    │  └─────────────────────────────┘    │
-         │                          │                                      │
+         │                          │                                     │
          │                          │  ┌─────────────────────────────┐    │
          │                          │  │                             │    │
          ├──────────────────────────┼──│  UC2: Login                 │    │
          │                          │  │                             │    │
          │                          │  └─────────────────────────────┘    │
-         │                          │                                      │
+         │                          │                                     │
          │                          │  ┌─────────────────────────────┐    │
          │                          │  │                             │    │
          ├──────────────────────────┼──│  UC3: Swipe Restaurants     │    │
          │                          │  │                             │    │
          │                          │  └─────────────────────────────┘    │
-         │                          │                                      │
+         │                          │                                     │
          │                          │  ┌─────────────────────────────┐    │
          │                          │  │                             │    │
          ├──────────────────────────┼──│  UC4: Apply Filters         │    │
          │                          │  │                             │    │
          │                          │  └─────────────────────────────┘    │
-         │                          │                                      │
+         │                          │                                     │
          │                          │  ┌─────────────────────────────┐    │
          │                          │  │                             │    │
          ├──────────────────────────┼──│  UC5: View Liked List       │    │
          │                          │  │                             │    │
          │                          │  └─────────────────────────────┘    │
-         │                          │                                      │
+         │                          │                                     │
          │                          │  ┌─────────────────────────────┐    │
          │                          │  │                             │    │
          └──────────────────────────┼──│  UC6: Logout                │    │
                                     │  │                             │    │
                                     │  └─────────────────────────────┘    │
-                                    │                                      │
+                                    │                                     │
                                     └─────────────────────────────────────┘
 ```
 
@@ -393,7 +393,7 @@ The project followed an **Agile/Iterative** development model with the following
 | Main Flow | 1. User clicks logout button (→)<br>2. System destroys session<br>3. System redirects to login page |
 | Postcondition | User session terminated, user on login page |
 
-### 3.3 Rationale for Your Use Case Model
+### 3.3 Rationale for Use Case Model
 
 The use case model was designed around the core user journey:
 
@@ -451,13 +451,13 @@ SwipeBites employs a **Client-Server Architecture** with the following patterns:
 │                           CLIENT (Browser)                          │
 │  ┌───────────────────────────────────────────────────────────────┐  │
 │  │                    React Frontend (Port 3000)                 │  │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐   │  │
-│  │  │  Components │  │   Services  │  │   State (useState)  │   │  │
-│  │  │  - Auth     │  │  - api.ts   │  │   - user            │   │  │
-│  │  │  - Swipe    │  │  - auth.ts  │  │   - filters         │   │  │
-│  │  │  - Filter   │  │             │  │   - restaurants     │   │  │
-│  │  │  - Liked    │  │             │  │                     │   │  │
-│  │  └─────────────┘  └─────────────┘  └─────────────────────┘   │  │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐    │  │
+│  │  │  Components │  │   Services  │  │   State (useState)  │    │  │
+│  │  │  - Auth     │  │  - api.ts   │  │   - user            │    │  │
+│  │  │  - Swipe    │  │  - auth.ts  │  │   - filters         │    │  │
+│  │  │  - Filter   │  │             │  │   - restaurants     │    │  │
+│  │  │  - Liked    │  │             │  │                     │    │  │
+│  │  └─────────────┘  └─────────────┘  └─────────────────────┘    │  │
 │  └───────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────┘
                                     │
@@ -465,7 +465,7 @@ SwipeBites employs a **Client-Server Architecture** with the following patterns:
                                     │ Session Cookies
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│                     Express Backend (Port 5000)                      │
+│                     Express Backend (Port 5000)                     │
 │  ┌───────────────────────────────────────────────────────────────┐  │
 │  │                         Middleware                            │  │
 │  │   CORS │ JSON Parser │ Session Management │ Error Handler     │  │
@@ -567,23 +567,23 @@ SwipeBites employs a **Client-Server Architecture** with the following patterns:
         │ (authenticated)
         ▼
 ┌──────────────────────────────────────────────────────────┐
-│                     Main Interface                        │
+│                     Main Interface                       │
 │  ┌────────────────────────────────────────────────────┐  │
 │  │                    Header                          │  │
-│  │   [♥ Liked]    SwipeBites    [⚙ Filter] [→ Logout]│  │
+│  │   [♥ Liked]    SwipeBites    [⚙ Filter] [→ Logout] │  │
 │  └────────────────────────────────────────────────────┘  │
 │                                                          │
 │  ┌────────────────────────────────────────────────────┐  │
 │  │                                                    │  │
 │  │              Restaurant Card Stack                 │  │
-│  │  ┌──────────────────────────────────────────────┐ │  │
-│  │  │  [Image]                                     │ │  │
-│  │  │  Restaurant Name          ⭐ 4.5             │ │  │
-│  │  │  Cuisine Type  |  $$  |  1.2 mi              │ │  │
-│  │  │  Description...                              │ │  │
-│  │  │  [Dietary Tags]                              │ │  │
-│  │  │  [Website Link]                              │ │  │
-│  │  └──────────────────────────────────────────────┘ │  │
+│  │  ┌──────────────────────────────────────────────┐  │  │
+│  │  │  [Image]                                     │  │  │
+│  │  │  Restaurant Name          ⭐ 4.5              │  │  │
+│  │  │  Cuisine Type  |  $$  |  1.2 mi              │  │  │
+│  │  │  Description...                              │  │  │
+│  │  │  [Dietary Tags]                              │  │  │
+│  │  │  [Website Link]                              │  │  │
+│  │  └──────────────────────────────────────────────┘  │  │
 │  │                                                    │  │
 │  └────────────────────────────────────────────────────┘  │
 │                                                          │
@@ -943,7 +943,7 @@ The test suite demonstrates that:
 
 | ID | Description | Severity | Resolution |
 |----|-------------|----------|------------|
-| D001 | Session lost on server restart | Medium | Known limitation documented; recommend Redis for production |
+| D001 | Session lost on server restart | Medium | Known limitation documented; Redis for production |
 | D002 | Swipe animation stuttering on low-end devices | Low | Optimized by reducing shadow transitions during animation |
 | D003 | Filter panel not closing after apply on mobile | Low | Fixed by ensuring proper state update |
 
@@ -990,13 +990,13 @@ The test suite demonstrates that:
 
 **Technical Lessons:**
 
-1. **API Costs Matter:** External APIs like Google Places can be prohibitively expensive. Planning for static data fallbacks is important.
+1. **API Costs Matter:** External APIs like Google Places can be expensive. using static data is also important
+   
+3. **Session Management Complexity:** While simpler than JWT, server-side sessions require careful consideration for production.
 
-2. **Session Management Complexity:** While simpler than JWT, server-side sessions require careful consideration for production (Redis, clustering).
+4. **Animation Performance:** CSS-based animations with react-spring provide smooth performance when properly optimized.
 
-3. **Animation Performance:** CSS-based animations with react-spring provide smooth performance when properly optimized.
-
-4. **TypeScript Benefits:** Type safety caught numerous bugs during development and improved code quality.
+5. **TypeScript Benefits:** Type safety caught numerous bugs during development and improved code quality.
 
 **Process Lessons:**
 
